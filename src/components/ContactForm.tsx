@@ -29,6 +29,25 @@ export default function ContactForm() {
       });
 
       if (!res.ok) throw new Error("Failed to send");
+
+      // Log lead to The Digital Wash dashboard
+      try {
+        await fetch("https://app.thedigitalwash.com/api/log-lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            siteKey: process.env.NEXT_PUBLIC_SITE_KEY,
+            name: data.name,
+            email: data.email,
+            phone: null,
+            message: data.message,
+            sourcePage: window.location.pathname,
+          }),
+        });
+      } catch {
+        // Silent fail — never block form submission
+      }
+
       setStatus("sent");
     } catch {
       setStatus("error");
