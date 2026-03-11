@@ -1,13 +1,13 @@
 import Logo from "./Logo";
 
 export default function Footer() {
+
   return (
     <footer>
       <div className="footer-top">
         <div className="footer-brand">
           <a href="#" className="nav-logo">
-            <Logo size={36} variant="simple" prefix="footer" />
-            <span>Honey Pot Media</span>
+            <Logo height={36} />
           </a>
           <p>
             A boutique social media management and content creation studio based

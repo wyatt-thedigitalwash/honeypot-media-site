@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Logo from "./Logo";
 
 export default function Navbar() {
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -20,8 +21,7 @@ export default function Navbar() {
   return (
     <nav id="navbar" className={scrolled ? "scrolled" : ""}>
       <a href="#" className="nav-logo">
-        <Logo size={40} variant="full" prefix="nav" />
-        <span>Honey Pot Media</span>
+        <Logo height={40} />
       </a>
       <ul className={`nav-links${menuOpen ? " open" : ""}`} id="navLinks">
         <li>

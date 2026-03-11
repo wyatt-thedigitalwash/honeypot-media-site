@@ -1,5 +1,3 @@
-import Logo from "./Logo";
-
 export default function Hero() {
   return (
     <section className="hero">
@@ -28,9 +26,6 @@ export default function Hero() {
           <a href="#services" className="btn-secondary">
             Our Services
           </a>
-        </div>
-        <div className="hero-logo-display">
-          <Logo size={120} variant="full" prefix="hero" />
         </div>
       </div>
     </section>

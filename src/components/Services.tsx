@@ -1,3 +1,5 @@
+import { Smartphone, Palette, BarChart3 } from "lucide-react";
+
 export default function Services() {
   return (
     <section id="services">
@@ -20,7 +22,7 @@ export default function Services() {
 
       <div className="services-grid" style={{ marginTop: "2rem" }}>
         <div className="service-card reveal">
-          <div className="service-icon">📱</div>
+          <div className="service-icon"><Smartphone size={28} strokeWidth={1.5} color="#6B4226" /></div>
           <h3>Social Media Management</h3>
           <p>
             Full-service account management across all major platforms. We handle
@@ -35,7 +37,7 @@ export default function Services() {
           </div>
         </div>
         <div className="service-card reveal">
-          <div className="service-icon">🎨</div>
+          <div className="service-icon"><Palette size={28} strokeWidth={1.5} color="#6B4226" /></div>
           <h3>Content Creation</h3>
           <p>
             Scroll-stopping graphics, reels, stories, and branded content
@@ -49,7 +51,7 @@ export default function Services() {
           </div>
         </div>
         <div className="service-card reveal">
-          <div className="service-icon">📊</div>
+          <div className="service-icon"><BarChart3 size={28} strokeWidth={1.5} color="#6B4226" /></div>
           <h3>Strategy &amp; Analytics</h3>
           <p>
             Data-driven strategies that actually move the needle. We dive deep
