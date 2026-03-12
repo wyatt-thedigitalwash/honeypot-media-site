@@ -744,6 +744,7 @@ textarea.contact-input {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
+  margin-top: 0.4rem;
 }
 .platform-item {
   display: flex;
@@ -754,7 +755,7 @@ textarea.contact-input {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--brown);
   cursor: pointer;
   font-weight: 400;
