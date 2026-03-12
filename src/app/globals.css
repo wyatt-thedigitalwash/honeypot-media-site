@@ -754,7 +754,7 @@ textarea.contact-input {
 .platform-checkbox {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 8px;
   font-size: 0.8rem;
   color: var(--brown);
   cursor: pointer;
