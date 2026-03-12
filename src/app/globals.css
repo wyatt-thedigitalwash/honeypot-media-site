@@ -905,19 +905,29 @@ footer {
 }
 
 /* ─── BEAR WIGGLE ─── */
-.footer-brand .nav-logo img {
-  transition: transform 0.3s ease;
+.footer-bear {
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 1rem;
 }
-.footer-brand .nav-logo:hover img,
-.footer-brand .nav-logo:active img {
-  animation: wiggle 0.5s ease;
+.footer-bear img {
+  display: block;
+  transition: transform 0.15s ease;
+}
+.footer-bear:hover img {
+  animation: wiggle 0.6s ease;
+}
+.footer-bear:active img {
+  animation: wiggle 0.4s ease;
 }
 @keyframes wiggle {
   0% { transform: rotate(0deg); }
-  20% { transform: rotate(-8deg); }
-  40% { transform: rotate(8deg); }
-  60% { transform: rotate(-5deg); }
-  80% { transform: rotate(5deg); }
+  15% { transform: rotate(-10deg); }
+  30% { transform: rotate(10deg); }
+  45% { transform: rotate(-7deg); }
+  60% { transform: rotate(7deg); }
+  75% { transform: rotate(-3deg); }
+  90% { transform: rotate(3deg); }
   100% { transform: rotate(0deg); }
 }
 
@@ -932,6 +942,24 @@ footer {
     transform: translateY(0);
   }
 }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.nav-links.open li {
+  animation: fadeInUp 0.3s ease both;
+}
+.nav-links.open li:nth-child(1) { animation-delay: 0.03s; }
+.nav-links.open li:nth-child(2) { animation-delay: 0.06s; }
+.nav-links.open li:nth-child(3) { animation-delay: 0.09s; }
+.nav-links.open li:nth-child(4) { animation-delay: 0.12s; }
+.nav-links.open li:nth-child(5) { animation-delay: 0.15s; }
 
 /* ─── ANIMATIONS ─── */
 .reveal {

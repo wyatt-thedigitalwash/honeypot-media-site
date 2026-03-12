@@ -5,14 +5,14 @@ export default function Footer() {
     <footer>
       <div className="footer-top">
         <div className="footer-brand">
-          <a href="#" className="nav-logo">
+          <div className="footer-bear">
             <Image
               src="/assets/honey-pot-bears-white.png"
               alt="Honey Pot Media"
               width={120}
               height={120}
             />
-          </a>
+          </div>
           <p>
             A boutique social media management and content creation studio
             helping brands build authentic communities and scroll-stopping
