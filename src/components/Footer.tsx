@@ -9,8 +9,8 @@ export default function Footer() {
             <Image
               src="/assets/honey-pot-bears-white.png"
               alt="Honey Pot Media"
-              width={120}
-              height={120}
+              width={160}
+              height={160}
             />
           </a>
           <p>
