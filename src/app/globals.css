@@ -59,7 +59,7 @@ nav.scrolled {
   gap: 0.7rem;
   text-decoration: none;
 }
-.nav-logo img {
+nav .nav-logo img {
   height: 60px;
   width: auto;
 }
