@@ -150,7 +150,17 @@ nav .nav-logo img {
   height: 2px;
   background: var(--brown);
   border-radius: 2px;
-  transition: 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: center;
+}
+.mobile-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ─── HERO ─── */
@@ -894,6 +904,35 @@ footer {
   margin: 0 auto;
 }
 
+/* ─── BEAR WIGGLE ─── */
+.footer-brand .nav-logo img {
+  transition: transform 0.3s ease;
+}
+.footer-brand .nav-logo:hover img,
+.footer-brand .nav-logo:active img {
+  animation: wiggle 0.5s ease;
+}
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-8deg); }
+  40% { transform: rotate(8deg); }
+  60% { transform: rotate(-5deg); }
+  80% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ─── MENU SLIDE ─── */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ─── ANIMATIONS ─── */
 .reveal {
   opacity: 0;
@@ -924,6 +963,9 @@ footer {
   .mobile-toggle {
     display: flex;
   }
+  nav .nav-logo img {
+    height: 44px;
+  }
   .nav-links.open {
     display: flex;
     flex-direction: column;
@@ -935,6 +977,7 @@ footer {
     padding: 1.5rem;
     gap: 1.2rem;
     border-bottom: 1px solid rgba(107, 66, 38, 0.08);
+    animation: slideDown 0.3s ease-out;
   }
   section {
     padding: 4rem 1.5rem;

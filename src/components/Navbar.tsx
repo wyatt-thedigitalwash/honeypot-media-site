@@ -54,7 +54,7 @@ export default function Navbar() {
           Book a Call
         </a>
         <button
-          className="mobile-toggle"
+          className={`mobile-toggle${menuOpen ? " active" : ""}`}
           aria-label="Menu"
           onClick={() => setMenuOpen((o) => !o)}
         >
