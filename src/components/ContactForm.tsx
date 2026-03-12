@@ -130,6 +130,11 @@ export default function ContactForm() {
                     checked={!!activePlatforms[platform]}
                     onChange={() => togglePlatform(platform)}
                   />
+                  <span className="check">
+                    <svg viewBox="0 0 14 14">
+                      <polyline points="2.5 7 5.5 10.5 11.5 3.5" />
+                    </svg>
+                  </span>
                   <span>{platform}</span>
                 </label>
                 {activePlatforms[platform] && (
