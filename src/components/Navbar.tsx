@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <nav id="navbar" className={scrolled ? "scrolled" : ""}>
       <a href="#" className="nav-logo">
-        <Logo height={40} />
+        <Logo height={60} />
       </a>
       <ul className={`nav-links${menuOpen ? " open" : ""}`} id="navLinks">
         <li>
