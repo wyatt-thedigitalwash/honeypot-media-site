@@ -1,4 +1,4 @@
-import Logo from "./Logo";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,7 +6,12 @@ export default function Footer() {
       <div className="footer-top">
         <div className="footer-brand">
           <a href="#" className="nav-logo">
-            <Logo height={36} />
+            <Image
+              src="/assets/honey-pot-bears-white.png"
+              alt="Honey Pot Media"
+              width={120}
+              height={120}
+            />
           </a>
           <p>
             A boutique social media management and content creation studio
