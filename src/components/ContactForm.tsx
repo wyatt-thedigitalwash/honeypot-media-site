@@ -176,7 +176,7 @@ export default function ContactForm() {
       </form>
 
       <div className="contact-social-links">
-        <a href="#" aria-label="Instagram">
+        <a href="https://www.instagram.com/honeypot.media/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <Instagram size={20} />
         </a>
         <a href="#" aria-label="TikTok">

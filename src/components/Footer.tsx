@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <h4>Connect</h4>
-          <a href="#">Instagram</a>
+          <a href="https://www.instagram.com/honeypot.media/" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="#">TikTok</a>
           <a href="#">Facebook</a>
           <a href="#">LinkedIn</a>
