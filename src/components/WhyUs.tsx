@@ -42,6 +42,12 @@ export default function WhyUs() {
           </p>
         </div>
       </div>
+
+      <div className="section-cta reveal">
+        <a href="#contact" className="btn-primary">
+          See What We Can Do for You &rarr;
+        </a>
+      </div>
     </section>
   );
 }

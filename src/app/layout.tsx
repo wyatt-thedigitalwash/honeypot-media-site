@@ -20,7 +20,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Honey Pot Media | Social Media Management & Content Creation",
   description:
-    "A boutique social media management and content creation studio based in Tampa, FL. Making brands irresistibly sweet online.",
+    "A boutique social media management and content creation studio based in Tampa, FL. Helping brands build authentic communities and scroll-stopping content.",
 };
 
 export default function RootLayout({

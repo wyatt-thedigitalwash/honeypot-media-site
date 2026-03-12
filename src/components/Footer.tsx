@@ -1,7 +1,6 @@
 import Logo from "./Logo";
 
 export default function Footer() {
-
   return (
     <footer>
       <div className="footer-top">
@@ -10,15 +9,18 @@ export default function Footer() {
             <Logo height={36} />
           </a>
           <p>
-            A boutique social media management and content creation studio based
-            in Tampa, FL. Making brands irresistibly sweet online.
+            A boutique social media management and content creation studio
+            helping brands build authentic communities and scroll-stopping
+            content.
           </p>
         </div>
         <div className="footer-col">
           <h4>Services</h4>
           <a href="#services">Social Media Management</a>
           <a href="#services">Content Creation</a>
-          <a href="#services">Strategy &amp; Analytics</a>
+          <a href="#services">Influencer Marketing</a>
+          <a href="#services">Brand Activations</a>
+          <a href="#services">Strategy &amp; Consulting</a>
         </div>
         <div className="footer-col">
           <h4>Company</h4>
@@ -30,11 +32,15 @@ export default function Footer() {
           <h4>Connect</h4>
           <a href="#">Instagram</a>
           <a href="#">TikTok</a>
+          <a href="#">Facebook</a>
           <a href="#">LinkedIn</a>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2026 Honey Pot Media. All rights reserved. Made with 🍯 in Tampa, FL.</p>
+        <p>
+          &copy; 2026 Honey Pot Media. All rights reserved. Made with 🍯 in
+          Tampa, FL.
+        </p>
       </div>
     </footer>
   );

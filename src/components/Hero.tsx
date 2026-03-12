@@ -1,17 +1,12 @@
 export default function Hero() {
   return (
     <section className="hero">
-      <div className="hero-bg">
-        <div className="hero-blob-1"></div>
-        <div className="hero-blob-2"></div>
-        <div className="hero-blob-3"></div>
-      </div>
       <div className="hero-content">
         <div className="hero-badge">
           <span className="dot"></span> Now Booking New Clients
         </div>
         <h1>
-          Make Your Brand <span className="highlight">Irresistibly</span> Sweet
+          Make Your Brand <span className="highlight">Unforgettable</span>{" "}
           Online
         </h1>
         <p>

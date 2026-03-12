@@ -3,7 +3,7 @@ export default function Process() {
     <section id="process">
       <div className="section-label reveal">How It Works</div>
       <h2 className="section-title reveal">
-        Simple as 1, 2, 3&hellip; Sweet!
+        A Proven Process, Tailored to You
       </h2>
       <p className="section-subtitle reveal">
         Getting started with us is as smooth as honey. Here&apos;s what to
@@ -43,6 +43,12 @@ export default function Process() {
             brand buzzing and your audience engaged.
           </p>
         </div>
+      </div>
+
+      <div className="section-cta reveal">
+        <a href="#contact" className="btn-primary process-cta">
+          Start Your Journey &rarr;
+        </a>
       </div>
     </section>
   );

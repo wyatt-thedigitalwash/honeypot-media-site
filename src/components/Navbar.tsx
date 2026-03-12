@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from "react";
 import Logo from "./Logo";
 
 export default function Navbar() {
-
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -44,21 +43,26 @@ export default function Navbar() {
             Testimonials
           </a>
         </li>
-        <li>
+        <li className="mobile-cta">
           <a href="#contact" className="nav-cta" onClick={closeMenu}>
-            Get Started
+            Book a Call
           </a>
         </li>
       </ul>
-      <button
-        className="mobile-toggle"
-        aria-label="Menu"
-        onClick={() => setMenuOpen((o) => !o)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div className="nav-right">
+        <a href="#contact" className="nav-cta desktop-cta">
+          Book a Call
+        </a>
+        <button
+          className="mobile-toggle"
+          aria-label="Menu"
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
   );
 }
