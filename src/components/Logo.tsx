@@ -5,11 +5,11 @@ interface LogoProps {
   className?: string;
 }
 
-export default function Logo({ height = 40, className }: LogoProps) {
-  const width = height * 2;
+export default function Logo({ height = 44, className }: LogoProps) {
+  const width = Math.round(height * (1600 / 750));
   return (
     <Image
-      src="/assets/honeypot-media-logo.png"
+      src="/assets/honey-pot-media-logo.png"
       alt="Honey Pot Media"
       width={width}
       height={height}
