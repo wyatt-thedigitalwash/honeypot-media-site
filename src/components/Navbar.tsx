@@ -5,6 +5,7 @@ import Logo from "./Logo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -15,10 +16,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroVisible(entry.isIntersecting),
+      { threshold: 0.05 }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
+  const navClass = [
+    scrolled ? "scrolled" : "",
+    heroVisible ? "nav-hero" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <nav id="navbar" className={scrolled ? "scrolled" : ""}>
+    <nav id="navbar" className={navClass}>
       <a href="#" className="nav-logo">
         <Logo height={60} />
       </a>
@@ -34,13 +54,13 @@ export default function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#process" onClick={closeMenu}>
-            Process
+          <a href="#dream-clients" onClick={closeMenu}>
+            Clients
           </a>
         </li>
         <li>
-          <a href="#testimonials" onClick={closeMenu}>
-            Testimonials
+          <a href="#process" onClick={closeMenu}>
+            Process
           </a>
         </li>
         <li className="mobile-cta">
