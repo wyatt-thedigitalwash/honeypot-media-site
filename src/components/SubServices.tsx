@@ -1,25 +1,25 @@
-import { Users, Sparkles, TrendingUp, MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 const subServices = [
   {
-    icon: Users,
     title: "Influencer Marketing",
-    desc: "Strategic influencer partnerships that put your brand in front of the right audiences. We handle outreach, negotiation, and campaign management.",
+    desc: "Strategic partnerships that put your brand in front of the right audiences.",
+    image: "/media/content-creator-portrait.webp",
   },
   {
-    icon: Sparkles,
     title: "Event & Brand Activations",
-    desc: "From pop-ups to launch parties, we create buzzworthy experiences that bring your brand to life and generate content that keeps the conversation going.",
+    desc: "Buzzworthy experiences that bring your brand to life and keep the conversation going.",
+    image: "/media/professional-content-creation.webp",
   },
   {
-    icon: TrendingUp,
     title: "Strategy & Growth Consulting",
-    desc: "Data-driven strategies that actually move the needle. We dig into your metrics, spot opportunities, and build roadmaps that convert followers into customers.",
+    desc: "Data-driven roadmaps that convert followers into customers.",
+    image: "/media/social-media-strategy-planning.webp",
   },
   {
-    icon: MessageCircle,
     title: "Community Management",
-    desc: "We nurture your audience with authentic engagement — responding, connecting, and turning casual followers into loyal brand advocates.",
+    desc: "Authentic engagement that turns casual followers into loyal brand advocates.",
+    image: "/media/brand-event-activation.webp",
   },
 ];
 
@@ -36,12 +36,18 @@ export default function SubServices() {
       <div className="sub-services-grid">
         {subServices.map((s) => (
           <div className="sub-service-card reveal" key={s.title}>
-            <div className="sub-service-icon">
-              <s.icon size={22} strokeWidth={1.5} color="#6B4226" />
+            <div className="sub-service-img">
+              <Image
+                src={s.image}
+                alt={s.title}
+                fill
+                sizes="(max-width: 768px) 75vw, 25vw"
+              />
             </div>
-            <div>
+            <div className="sub-service-overlay" />
+            <div className="sub-service-content">
+              <p className="sub-service-desc">{s.desc}</p>
               <h3>{s.title}</h3>
-              <p>{s.desc}</p>
             </div>
           </div>
         ))}

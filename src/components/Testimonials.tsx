@@ -40,7 +40,7 @@ export default function Testimonials() {
       </div>
 
       <div className="section-cta reveal">
-        <a href="#contact" className="btn-primary">
+        <a href="/contact" className="btn-primary">
           Join Our Happy Clients &rarr;
         </a>
       </div>

@@ -11,6 +11,7 @@ export default function Footer() {
               alt="Honey Pot Media"
               width={120}
               height={120}
+              loading="lazy"
             />
           </div>
           <p>
@@ -21,21 +22,22 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <h4>Services</h4>
-          <a href="#services">Social Media Management</a>
-          <a href="#services">Content Creation</a>
-          <a href="#services">Influencer Marketing</a>
-          <a href="#services">Brand Activations</a>
-          <a href="#services">Strategy &amp; Consulting</a>
+          <a href="/services/social-media-management">Social Media Management</a>
+          <a href="/services/content-creation">Content Creation</a>
+          <a href="/services">Influencer Marketing</a>
+          <a href="/services">Brand Activations</a>
+          <a href="/services">Strategy &amp; Consulting</a>
         </div>
         <div className="footer-col">
           <h4>Company</h4>
-          <a href="#why">About Us</a>
-          <a href="#process">Our Process</a>
-          <a href="#contact">Contact</a>
+          <a href="/about">About Us</a>
+          <a href="/why-us">Why Us</a>
+          <a href="/why-us#process">Our Process</a>
+          <a href="/contact">Contact</a>
         </div>
         <div className="footer-col">
           <h4>Connect</h4>
-          <a href="https://www.instagram.com/honeypot.media/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.instagram.com/honeypot.media/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">Instagram</a>
           <a href="#">TikTok</a>
           <a href="#">Facebook</a>
           <a href="#">LinkedIn</a>
