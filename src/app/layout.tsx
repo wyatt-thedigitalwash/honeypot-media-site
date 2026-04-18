@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import { LocalBusinessSchema } from "@/components/SchemaMarkup";
 import "./globals.css";
@@ -71,6 +72,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SXJE0C6GJ6"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SXJE0C6GJ6');
+          `}
+        </Script>
+      </head>
       <body>
         <LocalBusinessSchema />
         <a href="#main-content" className="skip-to-main">
