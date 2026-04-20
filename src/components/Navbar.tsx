@@ -9,6 +9,7 @@ export default function Navbar() {
   const isHomepage = pathname === "/";
   const [inHeroZone, setInHeroZone] = useState(isHomepage);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuClosing, setMenuClosing] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
@@ -81,94 +82,129 @@ export default function Navbar() {
     };
   }, [isHomepage]);
 
-  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const closeMenu = useCallback(() => {
+    setMenuClosing(true);
+    setTimeout(() => {
+      setMenuOpen(false);
+      setMenuClosing(false);
+    }, 450);
+  }, []);
+
+  const openMenu = useCallback(() => {
+    setMenuClosing(false);
+    setMenuOpen(true);
+  }, []);
 
   // Close menu on Escape key
   useEffect(() => {
     if (!menuOpen) return;
     function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") {
-        setMenuOpen(false);
-      }
+      if (e.key === "Escape") closeMenu();
     }
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [menuOpen]);
+  }, [menuOpen, closeMenu]);
+
+  const mobileMenuLinks = [
+    { href: "/services/social-media-management", label: "Social Media Management" },
+    { href: "/services/content-creation", label: "Content Creation" },
+    { href: "/about", label: "About" },
+    { href: "/why-us", label: "Why Us" },
+  ];
 
   return (
-    <nav id="navbar" ref={navRef} className={inHeroZone ? "nav-hero-zone" : ""} aria-label="Main navigation">
-      <a href="/" className="nav-logo" aria-label="Honey Pot Media — Home">
-        <Image
-          src="/assets/honey-pot-media-logo-white.svg"
-          alt="Honey Pot Media"
-          width={128}
-          height={60}
-        />
-      </a>
-      <ul className={`nav-links${menuOpen ? " open" : ""}`} id="navLinks" role={menuOpen ? "menu" : undefined}>
-        <li
-          className="nav-dropdown desktop-only"
-          onMouseEnter={() => setServicesOpen(true)}
-          onMouseLeave={() => setServicesOpen(false)}
-        >
-          <a href="/services" onClick={closeMenu}>
-            Services
-          </a>
-          <ul className={`nav-dropdown-menu${servicesOpen ? " show" : ""}`}>
-            <li>
-              <a href="/services/social-media-management" onClick={closeMenu}>
-                Social Media Management
-              </a>
-            </li>
-            <li>
-              <a href="/services/content-creation" onClick={closeMenu}>
-                Content Creation
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li className="mobile-only">
-          <a href="/services/social-media-management" onClick={closeMenu}>
-            Social Media Management
-          </a>
-        </li>
-        <li className="mobile-only">
-          <a href="/services/content-creation" onClick={closeMenu}>
-            Content Creation
-          </a>
-        </li>
-        <li>
-          <a href="/about" onClick={closeMenu}>
-            About
-          </a>
-        </li>
-        <li>
-          <a href="/why-us" onClick={closeMenu}>
-            Why Us
-          </a>
-        </li>
-        <li className="mobile-cta">
-          <a href="/contact" className="nav-cta" onClick={closeMenu}>
+    <>
+      <nav id="navbar" ref={navRef} className={inHeroZone ? "nav-hero-zone" : ""} aria-label="Main navigation">
+        <a href="/" className="nav-logo" aria-label="Honey Pot Media — Home">
+          <Image
+            src="/assets/honey-pot-media-logo-white.svg"
+            alt="Honey Pot Media"
+            width={128}
+            height={60}
+          />
+        </a>
+        <ul className="nav-links" id="navLinks">
+          <li
+            className="nav-dropdown desktop-only"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <a href="/services">
+              Services
+            </a>
+            <ul className={`nav-dropdown-menu${servicesOpen ? " show" : ""}`}>
+              <li>
+                <a href="/services/social-media-management">
+                  Social Media Management
+                </a>
+              </li>
+              <li>
+                <a href="/services/content-creation">
+                  Content Creation
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/why-us">
+              Why Us
+            </a>
+          </li>
+        </ul>
+        <div className="nav-right">
+          <a href="/contact" className="nav-cta desktop-cta">
             Book a Call
           </a>
-        </li>
-      </ul>
-      <div className="nav-right">
-        <a href="/contact" className="nav-cta desktop-cta">
-          Book a Call
-        </a>
-        <button
-          className={`mobile-toggle${menuOpen ? " active" : ""}`}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          aria-controls="navLinks"
-          onClick={() => setMenuOpen((o) => !o)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </nav>
+          <button
+            className={`mobile-toggle${menuOpen && !menuClosing ? " active" : ""}`}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            onClick={() => menuOpen ? closeMenu() : openMenu()}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      {/* Fullscreen mobile menu overlay */}
+      {menuOpen && (
+        <div className={`mobile-menu-overlay${menuClosing ? " closing" : ""}`} aria-modal="true" role="dialog">
+          <div className="mobile-menu-bg" />
+          <div className="mobile-menu-content">
+            <ul className="mobile-menu-links">
+              {mobileMenuLinks.map((link, i) => (
+                <li key={link.href} style={{ animationDelay: menuClosing ? `${(mobileMenuLinks.length - 1 - i) * 0.05}s` : `${i * 0.08 + 0.15}s` }}>
+                  <a href={link.href} onClick={closeMenu}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mobile-menu-cta" style={{ animationDelay: menuClosing ? "0s" : `${mobileMenuLinks.length * 0.08 + 0.25}s` }}>
+              <a href="/contact" className="mobile-menu-cta-btn" onClick={closeMenu}>
+                Book a Call
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

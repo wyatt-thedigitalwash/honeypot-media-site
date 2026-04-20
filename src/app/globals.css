@@ -93,7 +93,7 @@ nav.nav-hero-zone .nav-links {
   opacity: 0;
   pointer-events: none;
 }
-nav.nav-hero-zone .mobile-toggle {
+nav.nav-hero-zone .mobile-toggle:not(.active) {
   opacity: 0;
   pointer-events: none;
 }
@@ -259,6 +259,165 @@ nav .nav-logo img {
 }
 .mobile-toggle.active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── FULLSCREEN MOBILE MENU ─── */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-menu-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--brown-dark);
+  animation: menuWipeDown 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  transform-origin: top center;
+}
+
+.mobile-menu-overlay.closing .mobile-menu-bg {
+  animation: menuWipeUp 0.45s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.mobile-menu-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  padding: 2rem;
+}
+
+.mobile-menu-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu-links li {
+  opacity: 0;
+  animation: menuItemIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mobile-menu-overlay.closing .mobile-menu-links li {
+  animation: menuItemOut 0.3s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+.mobile-menu-links a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 0.6rem 1.5rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0.3rem;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: var(--honey);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+.mobile-menu-links a:hover,
+.mobile-menu-links a:active {
+  color: var(--honey);
+}
+
+.mobile-menu-links a:hover::after,
+.mobile-menu-links a:active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.mobile-menu-cta {
+  opacity: 0;
+  animation: menuItemIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mobile-menu-overlay.closing .mobile-menu-cta {
+  animation: menuItemOut 0.3s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+.mobile-menu-cta-btn {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.85rem 2.5rem;
+  border: 2px solid var(--honey);
+  border-radius: 50px;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.mobile-menu-cta-btn:hover,
+.mobile-menu-cta-btn:active {
+  background: var(--honey);
+  color: var(--brown-dark);
+  transform: translateY(-2px);
+}
+
+@keyframes menuWipeDown {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes menuWipeUp {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+@keyframes menuItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menuItemOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
 }
 
 /* ─── HERO ─── */
@@ -2048,30 +2207,17 @@ a.contact-detail:hover {
   nav.nav-hero-zone .nav-logo {
     display: none;
   }
-  nav.nav-hero-zone .mobile-toggle {
+  nav.nav-hero-zone .mobile-toggle:not(.active) {
     display: none;
   }
   .mobile-cta {
-    display: block;
+    display: none;
   }
   .mobile-toggle {
     display: flex;
   }
   nav .nav-logo img {
     height: 44px;
-  }
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--brown-dark);
-    padding: 1.5rem;
-    gap: 1.2rem;
-    border-bottom: 1px solid rgba(107, 66, 38, 0.08);
-    animation: slideDown 0.3s ease-out;
   }
   section {
     padding: 4rem 1.5rem;
