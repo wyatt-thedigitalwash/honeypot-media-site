@@ -91,7 +91,12 @@ export default function HeroSnap() {
 
       const y = window.scrollY;
 
-      // Issue 2: Near pos2 scrolling up — hold at pos2, don't fall to hero
+      // Near pos2 scrolling down — allow free scroll past
+      if (isNearPos2() && e.deltaY > 0) {
+        return;
+      }
+
+      // Near pos2 scrolling up — hold at pos2, don't fall to hero
       if (isNearPos2() && e.deltaY < 0) {
         e.preventDefault();
         if (Math.abs(e.deltaY) >= DEAD_ZONE) {
@@ -148,7 +153,12 @@ export default function HeroSnap() {
       const delta = touchStartY - e.touches[0].clientY;
       const y = window.scrollY;
 
-      // Issue 2: Near pos2 scrolling up — hold then snap
+      // Near pos2 scrolling down — allow free scroll past
+      if (isNearPos2() && delta > 0) {
+        return;
+      }
+
+      // Near pos2 scrolling up — hold then snap
       if (isNearPos2() && delta < 0) {
         e.preventDefault();
         if (Math.abs(delta) >= DEAD_ZONE) {
