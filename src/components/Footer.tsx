@@ -48,6 +48,12 @@ export default function Footer() {
           &copy; 2026 Honey Pot Media. All rights reserved. Made with 🍯 in
           Tampa, FL.
         </p>
+        <p className="footer-credit">
+          Website by{" "}
+          <a href="https://thedigitalwash.com" target="_blank" rel="noopener noreferrer">
+            The Digital Wash
+          </a>
+        </p>
       </div>
     </footer>
   );

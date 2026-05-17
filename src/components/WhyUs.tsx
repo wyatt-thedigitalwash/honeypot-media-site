@@ -45,8 +45,8 @@ export default function WhyUs() {
               srcSet="/media/woman-laptop-social-media-planning.webp"
             />
             <img
-              src="/media/social-media-strategy-planning.webp"
-              alt="Social media strategy planning"
+              src="/media/lifestyle-brand-photoshoot.webp"
+              alt="Lifestyle brand photoshoot"
               width={1200}
               height={1800}
               sizes="(max-width: 768px) 100vw, 45vw"

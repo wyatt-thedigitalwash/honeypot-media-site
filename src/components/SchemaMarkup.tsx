@@ -7,7 +7,7 @@ const localBusiness = {
   description:
     "Boutique social media management and content creation studio specializing in lifestyle brands in Tampa, FL.",
   url: BASE_URL,
-  email: "hello@honeypotmedia.com",
+  email: "hello@honeypotmediafl.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Tampa",

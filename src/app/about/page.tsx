@@ -90,7 +90,7 @@ export default function About() {
               social media presence people actually want to follow.
             </p>
             <p>
-              Today, we work with restaurants, wellness studios, boutiques,
+              Today, we work with wellness studios, boutiques,
               salons, and hospitality brands across Tampa, helping them build
               loyal audiences through strategy, content, and genuine community
               engagement.

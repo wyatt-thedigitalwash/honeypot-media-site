@@ -20,8 +20,8 @@ export async function POST(request: Request) {
         : "";
 
     const { error } = await resend.emails.send({
-      from: "Honey Pot Media <onboarding@resend.dev>",
-      to: "hello@honeypotmedia.com",
+      from: "Honey Pot Media <notification@honeypotmediafl.com>",
+      to: "hello@honeypotmediafl.com",
       replyTo: email,
       subject: `New inquiry from ${name}${businessName ? ` (${businessName})` : ""}`,
       text: `Name: ${name}\nBusiness: ${businessName || "N/A"}\nEmail: ${email}${platformsText}\n\nMessage:\n${message}`,

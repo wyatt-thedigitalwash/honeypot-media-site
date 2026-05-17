@@ -891,76 +891,6 @@ section {
 }
 
 /* ─── TESTIMONIALS ─── */
-#testimonials {
-  background: var(--white);
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.testimonial-card {
-  background: var(--cream);
-  border-radius: 20px;
-  padding: 2.5rem 2rem;
-  position: relative;
-}
-.testimonial-card::before {
-  content: "\201C";
-  font-family: var(--font-display);
-  font-size: 5rem;
-  color: var(--honey);
-  opacity: 0.3;
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  line-height: 1;
-}
-.testimonial-card p {
-  color: var(--text-light);
-  line-height: 1.75;
-  font-size: 0.95rem;
-  font-style: italic;
-  margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-.testimonial-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--white);
-}
-.testimonial-card:nth-child(1) .testimonial-avatar {
-  background: var(--pink);
-}
-.testimonial-card:nth-child(2) .testimonial-avatar {
-  background: var(--honey);
-  color: var(--brown-dark);
-}
-.testimonial-name {
-  font-weight: 700;
-  color: var(--brown-dark);
-  font-size: 0.9rem;
-}
-.testimonial-role {
-  font-size: 0.8rem;
-  color: var(--text-light);
-}
-
 /* ─── CTA / CONTACT ─── */
 .cta-section {
   padding: 6rem 3rem;
@@ -1218,6 +1148,18 @@ footer {
   font-size: 0.85rem;
   max-width: 1100px;
   margin: 0 auto;
+}
+.footer-credit {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+}
+.footer-credit a {
+  color: rgba(255, 249, 238, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-credit a:hover {
+  color: var(--honey);
 }
 
 /* ─── BEAR WIGGLE ─── */
@@ -1946,6 +1888,9 @@ footer {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.about-team-card:first-child .about-team-img img {
+  transform: scale(1.25);
 }
 .about-team-info {
   padding: 1.8rem 2rem;

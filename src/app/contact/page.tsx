@@ -67,9 +67,9 @@ export default function Contact() {
             </p>
 
             <div className="contact-details">
-              <a href="mailto:hello@honeypotmedia.com" className="contact-detail">
+              <a href="mailto:hello@honeypotmediafl.com" className="contact-detail">
                 <Mail size={18} strokeWidth={1.5} />
-                <span>hello@honeypotmedia.com</span>
+                <span>hello@honeypotmediafl.com</span>
               </a>
               <div className="contact-detail">
                 <MapPin size={18} strokeWidth={1.5} />

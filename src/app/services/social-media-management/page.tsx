@@ -98,7 +98,6 @@ const steps = [
 ];
 
 const audiences = [
-  "Restaurants",
   "Boutiques",
   "Med Spas",
   "Fitness Studios",

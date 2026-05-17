@@ -4,7 +4,6 @@ const niches = [
   "Cafes",
   "Coffee Shops",
   "Boutiques",
-  "Restaurants",
   "Rooftop Bars",
   "Nightlife Venues",
   "Beauty Brands",
